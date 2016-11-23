@@ -52,7 +52,8 @@ $(document).ready(function(){
 		
 		
 		e.preventDefault();
-		
+		$("#nameError").hide();
+
 		
 		if($("#Form").hasClass("New")){
 		
@@ -126,6 +127,7 @@ $(document).ready(function(){
 	$("table").on("click",".update", function(){
 		$("#Form").removeClass("New").addClass("Update");
 		$("#title").text($.i18n.prop('ModifyEgg'));
+		$("#nameError").hide();
 
 		$("#FormDiv").show();
 		

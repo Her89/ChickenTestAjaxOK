@@ -40,6 +40,8 @@ $(document).ready(function(){
 		$("#title").text($.i18n.prop('NewFarm'));
 		$("#name").val("");
 		$("#FormDiv").show();
+		$("#nameError").hide();
+
 
 		
 	});
@@ -118,7 +120,8 @@ $(document).ready(function(){
 		$("#title").text($.i18n.prop('ModifyFarm'));
 
 		$("#FormDiv").show();
-		
+		$("#nameError").hide();
+
 		$("#name").val($(this).attr('name'));
 		$("#name").attr('FarmID', $(this).attr('id'));
 

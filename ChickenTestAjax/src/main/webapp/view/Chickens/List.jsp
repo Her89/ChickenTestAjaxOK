@@ -42,7 +42,8 @@
 </tbody>
 
 </table>
-
+<br>
+<div id="noInfo" class="error"></div>
 <br><br>	
 <button id="new"> <spring:message code="NewChicken" /></button>
 

@@ -16,6 +16,9 @@ $(document).ready(function(){
 		    language: lang
 		     
 		});
+	
+	 $("table").hide();
+
 
 	loadList();	
 	
@@ -42,6 +45,8 @@ $(document).ready(function(){
 		$("#title").text($.i18n.prop('NewChicken'));
 		$("#name").val("");
 		$("#FormDiv").show();
+		$("#nameError").hide();
+
 
 		
 	});
@@ -125,7 +130,8 @@ $(document).ready(function(){
 		$("#title").text($.i18n.prop('ModifyChicken'));
 
 		$("#FormDiv").show();
-		
+		$("#nameError").hide();
+
 		$("#name").val($(this).attr('name'));
 		$("#name").attr('chickenID', $(this).attr('id'));
 
@@ -172,13 +178,21 @@ function loadList(){
 	$.getJSON(url,
 		
 		function(data){
-		fillTable(data);
 		
 		$('#titleTop').html($.i18n.prop('Farm')+": "+data.name);
+		if(data.chickenList.length == 0){
+			$("table").hide();
+
+			$("#noInfo").html($.i18n.prop('eNoInfo'));
+			$("#noInfo").show();
+			
+		}else{
+			fillTable(data);
+			$("table").show();
+			$("#noInfo").hide();
 		
 		
-		
-	})
+	}})
 };
 
 function fillTable (data){
